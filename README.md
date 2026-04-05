@@ -83,56 +83,17 @@ And in the Codex skills directory:
 ~/.codex/skills/
   project-bootstrap/
     SKILL.md
-  fullstack-project-setup/
-    SKILL.md
   frontend-project-setup/
     SKILL.md
   backend-project-setup/
     SKILL.md
-  git-project-setup/
-    SKILL.md
-  git-workflow/
-    SKILL.md
-  readme-project-setup/
-    SKILL.md
-  node-typescript-project-setup/
-    SKILL.md
-  package-manager-project-setup/
-    SKILL.md
-  env-project-setup/
-    SKILL.md
-  prettier-project-setup/
-    SKILL.md
-  eslint-project-setup/
-    SKILL.md
-  testing-project-setup/
-    SKILL.md
-  ci-project-setup/
-    SKILL.md
-  test-implementation/
-    SKILL.md
-  documentation-maintenance/
-    SKILL.md
-  security-review/
-    SKILL.md
-  code-quality-guardrails/
-    SKILL.md
-  quality-gate/
-    SKILL.md
-  bugfix-workflow/
-    SKILL.md
-  refactor-workflow/
-    SKILL.md
-  dependency-change/
-    SKILL.md
-  code-review-self-check/
-    SKILL.md
+  ...
 ```
 
 The simplest approach is:
 
 1. place `AGENTS.md` at the root of the project to be worked on
-2. place the skills in `~/.codex/skills/`
+2. copy the relevant skill folders from this repository into `~/.codex/skills/`
 3. let the LLM follow `AGENTS.md` and trigger the relevant skills during the task
 
 ## How The LLM Should Behave With This Setup
@@ -181,8 +142,6 @@ With `AGENTS.md` and the skills installed together, the intended behavior is:
 - `code-review-self-check`: reviews completed work with a reviewer mindset to catch bugs, regressions, missing tests, documentation drift, and risky assumptions.
 
 ## Recommended Usage
-
-## Using The Skills From A Project
 
 Once the folders are placed in the skills directory, open the target project and invoke the skill by name.
 

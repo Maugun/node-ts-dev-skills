@@ -17,6 +17,7 @@ Each folder contains a single `SKILL.md` file:
 - `frontend-project-setup`
 - `backend-project-setup`
 - `git-project-setup`
+- `git-workflow`
 - `readme-project-setup`
 - `node-typescript-project-setup`
 - `package-manager-project-setup`
@@ -25,21 +26,20 @@ Each folder contains a single `SKILL.md` file:
 - `eslint-project-setup`
 - `testing-project-setup`
 - `ci-project-setup`
+- `test-implementation`
+- `documentation-maintenance`
+- `security-review`
+- `code-quality-guardrails`
+- `quality-gate`
 
 ## Skill Overview
 
-### Orchestration
+### Setup And Bootstrap Skills
 
 - `project-bootstrap`: inspects a repository, asks a few high-impact questions when needed, then applies the relevant setup skills in a sensible order.
 - `fullstack-project-setup`: coordinates shared decisions for projects that contain both frontend and backend slices.
-
-### Stack Selection
-
 - `frontend-project-setup`: frontend setup defaults to React, Vite, and Tailwind CSS unless the user chooses otherwise.
 - `backend-project-setup`: backend setup defaults to NestJS, REST, MongoDB, no ORM, auth, `class-validator`, and tests with Jest and Nock unless the user chooses otherwise.
-
-### Tooling
-
 - `git-project-setup`: initializes Git hygiene, including `.gitignore` and first-commit guidance.
 - `node-typescript-project-setup`: sets up Node.js using the latest LTS line and TypeScript using the current stable release.
 - `package-manager-project-setup`: standardizes `npm`, `pnpm`, or `yarn` and avoids mixed lockfiles.
@@ -49,6 +49,18 @@ Each folder contains a single `SKILL.md` file:
 - `testing-project-setup`: adds a minimal but real testing setup aligned with the project stack.
 - `ci-project-setup`: adds a minimal CI workflow aligned with the real project scripts.
 - `readme-project-setup`: creates or rewrites `README.md` based on the actual project state.
+
+### Daily Development Skills
+
+- `git-workflow`: enforces safe Git usage during development, including intentional staging and no commit or push without explicit user request.
+- `test-implementation`: adds or updates meaningful tests after setup, choosing the right level of coverage for the change.
+- `documentation-maintenance`: updates Markdown documentation when code, setup, scripts, or workflows change.
+- `code-quality-guardrails`: keeps implementation aligned with local conventions, architecture, ESLint, and Prettier.
+
+### Verification And Review Skills
+
+- `security-review`: checks a change for practical security risks in code, config, env handling, and tooling.
+- `quality-gate`: runs a final verification pass after important work or before a commit.
 
 ## Recommended Usage
 

@@ -7,8 +7,14 @@ The skills are designed to work together:
 - `project-bootstrap` acts as the orchestrator
 - stack-specific skills handle frontend, backend, and full-stack choices
 - transversal skills handle tooling such as Git, Node.js, TypeScript, ESLint, Prettier, tests, CI, and README setup
+- `AGENTS.md` tells the LLM how to use the skills autonomously during setup, development, verification, and delivery
 
 ## Repository Structure
+
+At the root of the repository:
+
+- `AGENTS.md`: global operating instructions for the LLM
+- `README.md`: overview of the skill suite and installation guidance
 
 Each folder contains a single `SKILL.md` file:
 
@@ -35,6 +41,110 @@ Each folder contains a single `SKILL.md` file:
 - `refactor-workflow`
 - `dependency-change`
 - `code-review-self-check`
+
+## What `AGENTS.md` Does
+
+`AGENTS.md` is the high-level operating guide for the LLM.
+
+It does not replace the skills.
+It explains how to use them well together.
+
+Its role is to make the agent more autonomous by defining:
+
+1. when to start with bootstrap skills
+2. when to switch to development skills
+3. when to run review and verification skills
+4. how to inspect the repository before asking questions
+5. how to combine several skills on the same task
+6. which Git safety rules must always be respected
+
+In practice:
+
+- the skills define task-specific workflows
+- `AGENTS.md` defines the global behavior and orchestration logic
+
+## How To Use `AGENTS.md` In A Project
+
+If you want the LLM to use this approach inside another project, copy:
+
+1. `AGENTS.md`
+2. the relevant skill folders
+
+Recommended target structure:
+
+```text
+your-project/
+  AGENTS.md
+```
+
+And in the Codex skills directory:
+
+```text
+~/.codex/skills/
+  project-bootstrap/
+    SKILL.md
+  fullstack-project-setup/
+    SKILL.md
+  frontend-project-setup/
+    SKILL.md
+  backend-project-setup/
+    SKILL.md
+  git-project-setup/
+    SKILL.md
+  git-workflow/
+    SKILL.md
+  readme-project-setup/
+    SKILL.md
+  node-typescript-project-setup/
+    SKILL.md
+  package-manager-project-setup/
+    SKILL.md
+  env-project-setup/
+    SKILL.md
+  prettier-project-setup/
+    SKILL.md
+  eslint-project-setup/
+    SKILL.md
+  testing-project-setup/
+    SKILL.md
+  ci-project-setup/
+    SKILL.md
+  test-implementation/
+    SKILL.md
+  documentation-maintenance/
+    SKILL.md
+  security-review/
+    SKILL.md
+  code-quality-guardrails/
+    SKILL.md
+  quality-gate/
+    SKILL.md
+  bugfix-workflow/
+    SKILL.md
+  refactor-workflow/
+    SKILL.md
+  dependency-change/
+    SKILL.md
+  code-review-self-check/
+    SKILL.md
+```
+
+The simplest approach is:
+
+1. place `AGENTS.md` at the root of the project to be worked on
+2. place the skills in `~/.codex/skills/`
+3. let the LLM follow `AGENTS.md` and trigger the relevant skills during the task
+
+## How The LLM Should Behave With This Setup
+
+With `AGENTS.md` and the skills installed together, the intended behavior is:
+
+1. inspect first
+2. infer from repository evidence when possible
+3. ask only high-impact questions
+4. use the appropriate skills automatically
+5. verify important work before handoff
+6. never commit or push unless explicitly requested
 
 ## Skill Overview
 
@@ -71,58 +181,6 @@ Each folder contains a single `SKILL.md` file:
 - `code-review-self-check`: reviews completed work with a reviewer mindset to catch bugs, regressions, missing tests, documentation drift, and risky assumptions.
 
 ## Recommended Usage
-
-## Installing The Skills In A Project
-
-To use these skills in another project, copy the skill folders into a Codex-discoverable skills directory.
-
-The usual location is:
-
-```text
-~/.codex/skills/
-```
-
-Each skill must stay in its own folder and must contain its `SKILL.md` file.
-
-Example target structure:
-
-```text
-~/.codex/skills/
-  project-bootstrap/
-    SKILL.md
-  fullstack-project-setup/
-    SKILL.md
-  frontend-project-setup/
-    SKILL.md
-  backend-project-setup/
-    SKILL.md
-  git-project-setup/
-    SKILL.md
-  readme-project-setup/
-    SKILL.md
-  node-typescript-project-setup/
-    SKILL.md
-  package-manager-project-setup/
-    SKILL.md
-  env-project-setup/
-    SKILL.md
-  prettier-project-setup/
-    SKILL.md
-  eslint-project-setup/
-    SKILL.md
-  testing-project-setup/
-    SKILL.md
-  ci-project-setup/
-    SKILL.md
-```
-
-If you want to install only the main entrypoint, start by copying:
-
-1. `project-bootstrap`
-2. the stack skill you expect to need most often: `frontend-project-setup`, `backend-project-setup`, or `fullstack-project-setup`
-3. the transversal tooling skills used by the bootstrap flow
-
-To keep everything working together, the simplest option is to copy all folders as-is.
 
 ## Using The Skills From A Project
 

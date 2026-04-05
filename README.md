@@ -33,6 +33,7 @@ Each folder contains a single `SKILL.md` file:
 - `testing-project-setup`
 - `ci-project-setup`
 - `test-implementation`
+- `prompt-intake`
 - `documentation-maintenance`
 - `security-review`
 - `code-quality-guardrails`
@@ -127,6 +128,7 @@ With `AGENTS.md` and the skills installed together, the intended behavior is:
 
 ### Daily Development Skills
 
+- `prompt-intake`: normalizes the user's prompt before acting, clarifies objective and constraints, and helps decide whether clarification is needed.
 - `git-workflow`: enforces safe Git usage during development, including intentional staging and no commit or push without explicit user request.
 - `test-implementation`: adds or updates meaningful tests after setup, choosing the right level of coverage for the change.
 - `documentation-maintenance`: updates Markdown documentation when code, setup, scripts, or workflows change.

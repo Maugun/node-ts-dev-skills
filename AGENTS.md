@@ -42,6 +42,7 @@ Use these when initializing or standardizing a project:
 
 Use these while implementing changes:
 
+- `prompt-intake`
 - `git-workflow`
 - `code-quality-guardrails`
 - `test-implementation`
@@ -64,12 +65,13 @@ Use these before handoff, after an important step, or before a commit:
 
 For most tasks, use this pattern:
 
-1. inspect the repository and changed area
-2. identify the relevant skill or skill combination
-3. implement the requested change
-4. run the relevant verification
-5. perform a self-review when the change is non-trivial
-6. leave the work uncommitted unless the user explicitly asks for a commit
+1. normalize the prompt internally with `prompt-intake`
+2. inspect the repository and changed area
+3. identify the relevant skill or skill combination
+4. implement the requested change
+5. run the relevant verification
+6. perform a self-review when the change is non-trivial
+7. leave the work uncommitted unless the user explicitly asks for a commit
 
 Do not skip directly from implementation to "done" without considering verification and review.
 
@@ -141,6 +143,25 @@ Prefer checking these first:
 
 If the repository already answers the question clearly, do not ask it.
 
+## Prompt Normalization
+
+Always start important work with an internal prompt normalization step using `prompt-intake`.
+
+Before implementing, identify internally:
+
+1. the user's real objective
+2. explicit constraints
+3. important implicit constraints
+4. the expected deliverable
+5. remaining ambiguity
+
+Do this even when you do not mention the normalization explicitly to the user.
+
+If the prompt is ambiguous or seems to miss important information for correct implementation, ask the user focused clarification questions before proceeding.
+
+Do not ask questions automatically on every prompt.
+Ask only when the ambiguity or missing precision could materially harm the quality or correctness of the work.
+
 ## Autonomy Rules
 
 Act autonomously, but stay inside these guardrails:
@@ -157,11 +178,11 @@ Use multiple skills together when the task naturally spans several concerns.
 
 Common combinations:
 
-1. new feature: `code-quality-guardrails` + `test-implementation` + `documentation-maintenance` + `quality-gate`
-2. bug fix: `bugfix-workflow` + `test-implementation` + `code-review-self-check`
-3. refactor: `refactor-workflow` + `quality-gate` + `code-review-self-check`
-4. dependency change: `dependency-change` + `security-review` + `quality-gate`
-5. setup or workflow update: `documentation-maintenance` + `quality-gate`
+1. new feature: `prompt-intake` + `code-quality-guardrails` + `test-implementation` + `documentation-maintenance` + `quality-gate`
+2. bug fix: `prompt-intake` + `bugfix-workflow` + `test-implementation` + `code-review-self-check`
+3. refactor: `prompt-intake` + `refactor-workflow` + `quality-gate` + `code-review-self-check`
+4. dependency change: `prompt-intake` + `dependency-change` + `security-review` + `quality-gate`
+5. setup or workflow update: `prompt-intake` + `documentation-maintenance` + `quality-gate`
 
 Prefer composable skill usage over forcing one skill to cover everything.
 

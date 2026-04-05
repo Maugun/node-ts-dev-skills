@@ -1,4 +1,4 @@
-# Project Setup Skills
+# node-ts-dev-skills
 
 This repository contains a set of reusable Codex skills to bootstrap and standardize software projects.
 

@@ -31,6 +31,10 @@ Each folder contains a single `SKILL.md` file:
 - `security-review`
 - `code-quality-guardrails`
 - `quality-gate`
+- `bugfix-workflow`
+- `refactor-workflow`
+- `dependency-change`
+- `code-review-self-check`
 
 ## Skill Overview
 
@@ -56,11 +60,15 @@ Each folder contains a single `SKILL.md` file:
 - `test-implementation`: adds or updates meaningful tests after setup, choosing the right level of coverage for the change.
 - `documentation-maintenance`: updates Markdown documentation when code, setup, scripts, or workflows change.
 - `code-quality-guardrails`: keeps implementation aligned with local conventions, architecture, ESLint, and Prettier.
+- `bugfix-workflow`: fixes issues methodically by reproducing problems, finding root causes, and verifying the correction.
+- `refactor-workflow`: improves structure safely while preserving behavior and validating non-regression.
+- `dependency-change`: manages dependency additions, updates, and removals with compatibility, security, and maintenance checks.
 
 ### Verification And Review Skills
 
 - `security-review`: checks a change for practical security risks in code, config, env handling, and tooling.
 - `quality-gate`: runs a final verification pass after important work or before a commit.
+- `code-review-self-check`: reviews completed work with a reviewer mindset to catch bugs, regressions, missing tests, documentation drift, and risky assumptions.
 
 ## Recommended Usage
 

@@ -11,6 +11,7 @@ Treat frontend and backend as separate slices with shared conventions.
 Ask only the cross-cutting questions that materially affect both sides.
 Keep the chosen frontend and backend stacks coherent with shared tooling.
 Ensure the frontend slice remains responsive across desktop, tablet, and mobile by default.
+Keep frontend user-facing text in a dedicated content or config source instead of scattering strings through components.
 
 Default full-stack baseline:
 
@@ -116,6 +117,7 @@ When both slices are present:
 3. align scripts so root documentation stays understandable
 4. avoid duplicating contradictory setup instructions
 5. ensure the frontend slice is responsive across desktop, tablet, and mobile
+6. keep frontend copy centralized so dynamic components and future translation remain manageable
 
 ## Validation
 
@@ -134,4 +136,7 @@ After setup:
 - Do not leave the project structure ambiguous after setup.
 - Do not document integration paths that are not implemented.
 - Do not treat responsive frontend behavior as optional in full-stack app setup unless the user explicitly says otherwise.
+- Do not spread frontend UI strings across components when a dedicated content/config source would keep the full-stack frontend easier to evolve and translate.
+
+
 

@@ -11,6 +11,7 @@ Respect the existing architecture.
 Respect local naming and file organization.
 Respect ESLint and Prettier configuration.
 When the change touches frontend UI, preserve responsive behavior across desktop, tablet, and mobile.
+When the change touches frontend UI text, prefer the project's content or config source over hardcoded component strings.
 
 Do not rewrite large areas without a reason.
 Do not introduce style drift from nearby code.
@@ -31,6 +32,7 @@ Do not rely on lint fixes alone as a substitute for thoughtful implementation.
 4. Use the established abstractions before inventing new ones.
 5. Respect configured ESLint and Prettier rules.
 6. When changing frontend UI, maintain responsive behavior across desktop, tablet, and mobile.
+7. When changing frontend copy, keep text in a dedicated content or config source whenever the project supports that pattern.
 
 ## Change Scope Rules
 
@@ -45,5 +47,8 @@ Do not rely on lint fixes alone as a substitute for thoughtful implementation.
 - Do not ignore warnings that point to real maintainability issues.
 - Do not bypass lint or formatting rules instead of working with them.
 - Do not ship frontend UI changes that only work on one viewport when the project is expected to be responsive.
+- Do not hardcode new frontend copy in components when the project expects centralized content for dynamic rendering or translation.
+
+
 
 

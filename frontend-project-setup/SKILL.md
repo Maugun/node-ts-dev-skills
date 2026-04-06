@@ -11,6 +11,7 @@ Ask only the frontend-specific questions that materially change the stack.
 Prefer a small set of consistent defaults when the user does not choose explicitly.
 Keep the selected stack coherent across tooling, scripts, and documentation.
 Ensure the frontend is responsive across desktop, tablet, and mobile by default.
+Keep UI text in a dedicated content or config source instead of hardcoding strings inside components.
 
 Default frontend stack:
 
@@ -56,6 +57,7 @@ When no clear preference is provided:
 1. use React as the UI framework
 2. use Vite as the build tool
 3. use Tailwind CSS for styling
+4. store frontend copy in a dedicated content or config layer rather than inline in components
 
 Keep the implementation consistent with those defaults in:
 
@@ -65,7 +67,17 @@ Keep the implementation consistent with those defaults in:
 4. README instructions
 5. CI commands
 6. responsive behavior across desktop, tablet, and mobile
+7. content sourcing for UI text
 
+## Content And Text Rules
+
+When building frontend UI:
+
+1. keep user-facing text in a dedicated content or config source
+2. avoid scattering hardcoded copy across components
+3. prefer a structure that supports dynamic rendering and future translation
+4. prefer a typed content module when the project already uses TypeScript heavily
+5. a JSON file is acceptable when the project wants plain content files and minimal logic
 ## Integration Rules
 
 If the repository already uses a frontend stack:
@@ -98,4 +110,7 @@ After the frontend stack is chosen, use these skills as needed:
 - Do not add Tailwind CSS and another styling system by default.
 - Do not add routing or state libraries unless they are needed.
 - Do not treat responsive behavior as optional for frontend work unless the user explicitly narrows the target surface.
+- Do not hardcode large amounts of UI copy directly inside components when a dedicated content/config source would make dynamic rendering and translation easier.
+
+
 

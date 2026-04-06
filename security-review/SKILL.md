@@ -50,12 +50,14 @@ For frontend changes, pay extra attention to:
 1. unsafe rendering or injection risks
 2. token handling
 3. exposure of secrets in client code
+4. unnecessary third-party hosted `<script>` or `<link>` dependencies that increase supply-chain or availability risk
 
 For repository and tooling changes, pay extra attention to:
 
 1. committed credentials
 2. unsafe CI workflow behavior
 3. `.env` handling
+4. untrusted or unnecessary externally hosted frontend assets
 
 ## Common Pitfalls
 
@@ -63,3 +65,6 @@ For repository and tooling changes, pay extra attention to:
 - Do not treat type safety as a security guarantee.
 - Do not expose secret values in documentation or examples.
 - Do not assume auth is safe because a route is hidden in the UI.
+- Do not ignore the security and availability risk of third-party hosted frontend scripts, styles, or other linked assets.
+
+

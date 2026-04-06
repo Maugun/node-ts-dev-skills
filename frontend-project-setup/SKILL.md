@@ -12,6 +12,7 @@ Prefer a small set of consistent defaults when the user does not choose explicit
 Keep the selected stack coherent across tooling, scripts, and documentation.
 Ensure the frontend is responsive across desktop, tablet, and mobile by default.
 Keep UI text in a dedicated content or config source instead of hardcoding strings inside components.
+Avoid external frontend asset dependencies when possible, especially third-party `<link>` and `<script>` tags.
 
 Default frontend stack:
 
@@ -68,6 +69,7 @@ Keep the implementation consistent with those defaults in:
 5. CI commands
 6. responsive behavior across desktop, tablet, and mobile
 7. content sourcing for UI text
+8. local asset sourcing instead of external frontend links and scripts
 
 ## Content And Text Rules
 
@@ -78,6 +80,9 @@ When building frontend UI:
 3. prefer a structure that supports dynamic rendering and future translation
 4. prefer a typed content module when the project already uses TypeScript heavily
 5. a JSON file is acceptable when the project wants plain content files and minimal logic
+6. prefer local, bundled frontend assets over externally hosted assets when practical
+7. prefer minimized local assets when the project benefits from shipping them directly
+8. treat third-party CDN `<script>` and `<link>` usage as an exception, not a default
 ## Integration Rules
 
 If the repository already uses a frontend stack:
@@ -111,6 +116,10 @@ After the frontend stack is chosen, use these skills as needed:
 - Do not add routing or state libraries unless they are needed.
 - Do not treat responsive behavior as optional for frontend work unless the user explicitly narrows the target surface.
 - Do not hardcode large amounts of UI copy directly inside components when a dedicated content/config source would make dynamic rendering and translation easier.
+- Do not rely by default on external `<script>` or `<link>` dependencies when local bundled assets would work.
+- Do not introduce external frontend assets without a good reason when a local minimized version is possible.
+
+
 
 
 

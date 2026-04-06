@@ -33,6 +33,7 @@ Use the relevant subset of these:
 5. documentation alignment
 6. security-sensitive review
 7. responsive UI verification when frontend screens or layouts changed
+8. frontend asset sourcing verification when scripts, styles, fonts, or linked assets changed
 
 ## Decision Rules
 
@@ -43,6 +44,7 @@ For code changes, usually check:
 1. lint
 2. tests relevant to the change
 3. type-check or build when applicable
+4. local asset sourcing when frontend scripts, styles, fonts, or linked assets changed
 
 For setup or workflow changes, usually check:
 
@@ -68,5 +70,8 @@ When reporting the outcome:
 - Do not skip security-sensitive review for auth, env, CI, or dependency changes.
 - Do not run a huge battery of checks when only a small relevant subset is needed.
 - Do not skip responsive verification when frontend layout, spacing, navigation, or components changed.
+- Do not skip checking for unintended external frontend `<script>` or `<link>` dependencies when frontend asset sourcing changed.
+
+
 
 

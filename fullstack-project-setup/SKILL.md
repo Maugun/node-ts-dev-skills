@@ -12,6 +12,7 @@ Ask only the cross-cutting questions that materially affect both sides.
 Keep the chosen frontend and backend stacks coherent with shared tooling.
 Ensure the frontend slice remains responsive across desktop, tablet, and mobile by default.
 Keep frontend user-facing text in a dedicated content or config source instead of scattering strings through components.
+Avoid external frontend asset dependencies when possible, especially third-party `<link>` and `<script>` tags in the frontend slice.
 
 Default full-stack baseline:
 
@@ -118,6 +119,7 @@ When both slices are present:
 4. avoid duplicating contradictory setup instructions
 5. ensure the frontend slice is responsive across desktop, tablet, and mobile
 6. keep frontend copy centralized so dynamic components and future translation remain manageable
+7. prefer local bundled frontend assets over third-party hosted links and scripts
 
 ## Validation
 
@@ -137,6 +139,10 @@ After setup:
 - Do not document integration paths that are not implemented.
 - Do not treat responsive frontend behavior as optional in full-stack app setup unless the user explicitly says otherwise.
 - Do not spread frontend UI strings across components when a dedicated content/config source would keep the full-stack frontend easier to evolve and translate.
+- Do not default to external frontend `<script>` or `<link>` dependencies when the frontend slice can ship local assets instead.
+- Do not skip local minimized asset options when bundling the frontend slice is practical.
+
+
 
 
 

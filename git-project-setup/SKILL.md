@@ -18,7 +18,7 @@ Do not overwrite an existing `.gitignore` blindly.
 ## Workflow
 
 1. Inspect the target project for an existing `.git` folder, `.gitignore`, `.env*` files, build folders, dependency folders, IDE files, and framework-specific outputs.
-2. If Git is not initialized, run `git init`.
+2. If Git is not initialized, run `git init -b master`.
 3. Create or update `.gitignore` with the baseline in this skill.
 4. Review project-specific generated files and add ignore rules only when they are clearly local or generated.
 5. Stage only the intended source files.
@@ -89,7 +89,7 @@ If a `.gitignore` already exists:
 If the project has no Git repository:
 
 ```bash
-git init
+git init -b master
 ```
 
 After initialization:
@@ -113,7 +113,7 @@ Prefer targeted staging when the project contains local files that might not yet
 
 When the user asks for a standard Git setup, prefer these conventions:
 
-1. Use a clear default branch name if the environment supports it.
+1. Use `master` as the default branch name.
 2. Keep commits small and descriptive.
 3. Avoid checking in generated files unless the project explicitly relies on them.
 4. Keep an `.env.example` file in version control when environment variables are needed, but never commit real `.env` files.
@@ -146,3 +146,5 @@ After setup:
 - Do not ignore source folders such as `src/`.
 - Do not add `.vscode/` blindly if the project intentionally shares editor settings and the user wants them versioned.
 - Do not stage everything automatically if the repository contains unclear local artifacts.
+- Do not initialize new repositories on main when this workflow expects master.
+

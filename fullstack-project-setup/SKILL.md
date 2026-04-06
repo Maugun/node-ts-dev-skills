@@ -10,6 +10,7 @@ Set up the full-stack project directly inside the target repository.
 Treat frontend and backend as separate slices with shared conventions.
 Ask only the cross-cutting questions that materially affect both sides.
 Keep the chosen frontend and backend stacks coherent with shared tooling.
+Ensure the frontend slice remains responsive across desktop, tablet, and mobile by default.
 
 Default full-stack baseline:
 
@@ -29,7 +30,8 @@ Do not assume deployment architecture unless the user asks for it.
 3. Ask only the missing high-impact full-stack questions.
 4. Decide the shared conventions first.
 5. Then delegate frontend-specific and backend-specific setup to the dedicated skills.
-6. Align shared tooling across both slices.
+6. Ensure the frontend slice handles desktop, tablet, and mobile layouts appropriately.
+7. Align shared tooling across both slices.
 
 ## Cross-Cutting Questions
 
@@ -113,6 +115,7 @@ When both slices are present:
 2. keep env handling separated when variables are slice-specific
 3. align scripts so root documentation stays understandable
 4. avoid duplicating contradictory setup instructions
+5. ensure the frontend slice is responsive across desktop, tablet, and mobile
 
 ## Validation
 
@@ -130,3 +133,5 @@ After setup:
 - Do not create two unrelated package manager conventions in one repository.
 - Do not leave the project structure ambiguous after setup.
 - Do not document integration paths that are not implemented.
+- Do not treat responsive frontend behavior as optional in full-stack app setup unless the user explicitly says otherwise.
+

@@ -10,6 +10,7 @@ Set up the frontend stack directly inside the target project.
 Ask only the frontend-specific questions that materially change the stack.
 Prefer a small set of consistent defaults when the user does not choose explicitly.
 Keep the selected stack coherent across tooling, scripts, and documentation.
+Ensure the frontend is responsive across desktop, tablet, and mobile by default.
 
 Default frontend stack:
 
@@ -27,7 +28,8 @@ Do not override an existing frontend stack without a reason.
 2. If the stack is already clear, preserve it.
 3. If the project is new or ambiguous, ask only the missing frontend questions.
 4. Apply the selected frontend stack.
-5. Align package scripts, config files, README notes, and testing choices with the selected stack.
+5. Ensure the frontend implementation handles desktop, tablet, and mobile layouts appropriately.
+6. Align package scripts, config files, README notes, and testing choices with the selected stack.
 
 ## Question Phase
 
@@ -62,6 +64,7 @@ Keep the implementation consistent with those defaults in:
 3. project structure
 4. README instructions
 5. CI commands
+6. responsive behavior across desktop, tablet, and mobile
 
 ## Integration Rules
 
@@ -94,3 +97,5 @@ After the frontend stack is chosen, use these skills as needed:
 - Do not scaffold React and then document Vue commands.
 - Do not add Tailwind CSS and another styling system by default.
 - Do not add routing or state libraries unless they are needed.
+- Do not treat responsive behavior as optional for frontend work unless the user explicitly narrows the target surface.
+

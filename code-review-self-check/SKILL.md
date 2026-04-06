@@ -9,6 +9,7 @@ Review your own work before handing it off.
 
 Adopt a reviewer mindset.
 Look for bugs, regressions, missing tests, unclear code, and stale documentation.
+When the change touches frontend UI, review whether desktop, tablet, and mobile behavior still make sense.
 Prefer concrete findings over generic approval language.
 
 Do not assume the code is correct because it compiles.
@@ -42,6 +43,7 @@ Review in roughly this order:
 4. Are the tests sufficient for the risk of the change?
 5. Does the documentation still match the implementation?
 6. Did the change introduce unnecessary complexity?
+7. If this touched frontend UI, could it have broken responsive behavior on desktop, tablet, or mobile?
 
 ## Reporting Rules
 
@@ -63,3 +65,6 @@ When no issues are found:
 - Do not ignore missing tests after non-trivial logic changes.
 - Do not mark work as safe if important checks were skipped.
 - Do not confuse "looks clean" with "is correct".
+- Do not assume a frontend change is safe if it was only considered on one viewport size.
+
+

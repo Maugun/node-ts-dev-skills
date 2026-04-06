@@ -21,8 +21,10 @@ Do not claim a bug is fixed without verification.
 2. Reproduce the problem when possible.
 3. Trace the issue to the most likely root cause.
 4. Apply the smallest safe fix.
-5. Add or update tests when they would meaningfully prevent regression.
-6. Re-run the relevant checks after the fix.
+5. If the bug touches frontend UI, check that the fix does not break desktop, tablet, or mobile behavior.
+6. Add or update tests when they would meaningfully prevent regression.
+7. Re-run the relevant checks after the fix.
+
 
 ## Root Cause Rules
 
@@ -57,6 +59,7 @@ After the fix:
 2. run relevant tests
 3. run lint or type checks if code paths changed
 4. check for nearby regressions
+5. if the bug touched frontend UI, check that responsive behavior still works across desktop, tablet, and mobile
 
 ## Common Pitfalls
 
@@ -64,3 +67,6 @@ After the fix:
 - Do not skip reproduction when it is realistically possible.
 - Do not refactor large areas just because the bug touched them.
 - Do not forget regression coverage when the failure pattern is testable.
+- Do not fix one viewport-specific UI bug by accidentally breaking another viewport.
+
+

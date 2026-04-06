@@ -32,6 +32,7 @@ Use the relevant subset of these:
 4. build or type-check
 5. documentation alignment
 6. security-sensitive review
+7. responsive UI verification when frontend screens or layouts changed
 
 ## Decision Rules
 
@@ -66,3 +67,6 @@ When reporting the outcome:
 - Do not ignore documentation drift after changing setup or commands.
 - Do not skip security-sensitive review for auth, env, CI, or dependency changes.
 - Do not run a huge battery of checks when only a small relevant subset is needed.
+- Do not skip responsive verification when frontend layout, spacing, navigation, or components changed.
+
+

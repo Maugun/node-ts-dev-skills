@@ -42,6 +42,7 @@ Prefer functional or end-to-end style tests when:
 1. the behavior matters across the full request or user flow
 2. route-level, screen-level, or workflow-level regressions are likely
 3. the existing project already has that layer of testing
+4. responsive UI behavior is at risk and the project already has suitable UI or end-to-end coverage
 
 ## When Not To Add Tests
 
@@ -67,3 +68,6 @@ If you skip tests, be able to explain why.
 - Do not duplicate coverage across multiple test layers without a reason.
 - Do not test framework internals.
 - Do not skip running the relevant tests after adding them.
+- Do not ignore responsive UI regressions when the project already has a way to validate them.
+
+

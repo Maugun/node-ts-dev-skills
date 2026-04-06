@@ -16,8 +16,9 @@ Do not simplify the rule set.
 2. If the project already has ESLint configured, preserve unrelated project-specific settings and merge this skill's config carefully.
 3. Prefer ESLint 9.x, not 10.x.
 4. Install the dependency set below.
-5. Create or update the flat config file to match the config in this skill.
-6. Validate by running ESLint on at least one TS or JS file.
+5. Create or update `package.json` scripts so the project has both `lint` and `lint:fix`.
+6. Create or update the flat config file to match the config in this skill.
+7. Validate by running ESLint on at least one TS or JS file.
 
 ## Dependency Set
 
@@ -38,6 +39,19 @@ Reason for ESLint 9.x: this rule stack is currently aligned on ESLint 9 compatib
 ## Files To Create
 
 Create `eslint.config.mjs` in the target project, or merge the contents below into the project's existing flat config.
+
+If the project has a `package.json`, ensure it includes scripts like:
+
+```json
+{
+    "scripts": {
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
+    }
+}
+```
+
+Keep existing script names if the project already has a clear convention, but make sure an autofix script exists.
 
 ## Main Flat Config
 
@@ -166,6 +180,7 @@ If the target project already has a flat config:
 1. Merge imports rather than duplicating them.
 2. Keep the rule values above unchanged.
 3. Preserve unrelated project overrides.
+4. Preserve existing script conventions when possible, but keep an equivalent `lint:fix` capability.
 
 If the target project still uses legacy `.eslintrc*`:
 
@@ -190,6 +205,7 @@ Useful commands:
 
 ```bash
 npx eslint .
+npx eslint . --fix
 ```
 
 ## Common Pitfalls
@@ -197,3 +213,5 @@ npx eslint .
 - Do not use ESLint 10 with this stack unless you re-verify every plugin.
 - Do not point the main entry file to `index.js` when the project uses `.mjs`.
 - Do not remove `projectService: true` unless the user explicitly wants a different TypeScript ESLint strategy.
+- Do not forget to expose an autofix command such as `lint:fix` when wiring ESLint into the project.
+
